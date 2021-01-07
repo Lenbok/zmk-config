@@ -24,10 +24,10 @@
 // | SHFT     |   Z  |    X  |  C  |  V  |  B  |     |  N  |  M   |  ,  |  .  |  /  | SHFT   |
 //                           | ALT | ENT | LWR |     | RSE | ENT  | CTRL|
                         bindings = <
-   &mt LWIN GRAVE   &kp Q    &kp W    &kp E    &kp R    &kp T       &kp Y    &kp U    &kp I     &kp O    &kp P     &kp BSPC
-   &mt LCTRL TAB    &kp A    &kp S    &kp D    &kp F    &kp G       &kp H    &kp J    &kp K     &kp L    &kp SEMI  &kp SQT
-   &mt LSHFT LPAR   &kp Z    &kp X    &kp C    &kp V    &kp B       &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH  &mt RSHFT RPAR
-                                     &kp LALT &kp RET &mo LWR       &mo RSE &kp SPACE &kp RCTL
+   &mt LWIN GRAVE   &kp Q    &kp W      &kp E    &kp R    &kp T       &kp Y    &kp U     &kp I     &kp O    &kp P     &kp BSPC
+   &mt LCTRL TAB    &kp A    &kp S      &kp D    &kp F    &kp G       &kp H    &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
+   &mt LSHFT LPAR   &kp Z    &kp X      &kp C    &kp V    &kp B       &kp N    &kp M     &kp COMMA &kp DOT  &kp FSLH  &mt RSHFT RPAR
+                             &kp C_MUTE &kp LALT &kp RET  &mo LWR     &mo RSE  &kp SPACE &kp RCTL  &none
                         >;
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
@@ -41,7 +41,7 @@
    &mt LWIN ESC &kp N1      &kp N2     &kp N3      &kp N4      &kp N5            &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &trans       &kp F1      &kp F2     &kp F3      &kp F4      &kp F5            &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans       &kp F6      &kp F7     &kp F8      &kp F9      &kp F10           &trans   &trans   &trans &trans    &trans &trans
-                                       &trans      &mo ADJ     &mo LWR           &mo ADJ  &mo LWR  &trans
+                            &kp C_PP   &trans      &mo ADJ     &mo LWR           &mo ADJ  &mo LWR  &trans &none
                         >;
                         sensor-bindings = <&inc_dec_cp LC(PLUS) LC(MINUS)>;
                 };
@@ -56,7 +56,7 @@
    &kp  ESC     &kp EXCL    &kp AT     &kp HASH    &kp DLLR    &kp PRCNT         &kp CARET   &kp AMPS    &kp ASTRK  &kp LPAR &kp RPAR &kp DEL
    &trans       &none       &none      &none       &none       &none             &kp MINUS   &kp PLUS    &kp LBRC   &kp RBRC &kp PIPE &trans
    &trans       &none       &none      &none       &none       &none             &kp UNDER   &kp EQUAL   &kp LBKT   &kp RBKT &kp BSLH &trans
-                                       &trans      &mo RSE     &mo ADJ           &mo RSE      &mo ADJ     &trans
+                            &kp J      &trans      &mo RSE     &mo ADJ           &mo RSE     &mo ADJ     &trans     &none
                         >;
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
                 };
@@ -70,7 +70,7 @@
    &none        &none        &none        &bt BT_CLR   &reset       &bootloader        &bootloader  &reset       &bt BT_CLR   &none        &none         &kp INS
    &kp CAPS     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
    &none        &none        &none        &none        &none        &none              &kp C_PREV   &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp C_PLAY    &none
-                                          &trans       &trans       &trans             &trans       &trans       &trans
+                             &none        &trans       &trans       &trans             &trans       &trans       &trans       &none
                         >;
                 };
         };
