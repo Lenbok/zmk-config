@@ -65,8 +65,8 @@
 //                     |     |     |     |        |     |     |     |
                         bindings = <
    &none        &none        &none        &bt BT_CLR   &reset       &bootloader        &bootloader  &reset       &bt BT_CLR   &none        &none         &kp INS
-   &kp CAPS     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
-   &none        &none        &none        &none        &none        &none              &kp C_PREV   &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp C_PLAY    &none
+   &kp CAPS     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &none
+   &none        &none        &none        &none        &none        &none              &kp C_PREV   &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp C_PP      &none
                                           &trans       &trans       &trans             &trans       &trans       &trans
                         >;
                 };
