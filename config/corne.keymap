@@ -30,6 +30,7 @@
                              &kp C_MUTE &kp LALT &kp RET  &mo LWR     &mo RSE  &kp SPACE &kp RCTL  &none
                         >;
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+                        label = "Default";
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
@@ -44,6 +45,7 @@
                             &kp C_PP   &trans      &mo ADJ     &mo LWR           &mo ADJ  &mo LWR  &trans &none
                         >;
                         sensor-bindings = <&inc_dec_cp LC(PLUS) LC(MINUS)>;
+                        label = "Lower";
                 };
 
                 raise_layer {
@@ -59,6 +61,7 @@
                             &kp C_PP   &trans      &mo RSE     &mo ADJ           &mo RSE     &mo ADJ     &trans     &none
                         >;
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+                        label = "Raise";
                 };
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
@@ -72,6 +75,7 @@
    &none        &none        &none        &none        &none        &none              &kp C_PREV   &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp C_PP      &none
                              &none        &trans       &trans       &trans             &trans       &trans       &trans       &none
                         >;
+                        label = "Adjust";
                 };
         };
 };
