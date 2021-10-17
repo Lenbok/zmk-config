@@ -21,13 +21,13 @@
 // -----------------------------------------------------------------------------------------
 // | GUI/~    |   Q  |    W  |  E  |  R  |  T  |     |  Y  |  U   |  I  |  O  |  P  | BKSP   |
 // | CTRL/TAB |   A  |    S  |  D  |  F  |  G  |     |  H  |  J   |  K  |  L  |  ;  |  '     |
-// | SHFT     |   Z  |    X  |  C  |  V  |  B  |     |  N  |  M   |  ,  |  .  |  /  | SHFT   |
+// | SHFT/(   |   Z  |    X  |  C  |  V  |  B  |     |  N  |  M   |  ,  |  .  |  /  | SHFT/) |
 //                           | ALT | ENT | LWR |     | RSE | ENT  | CTRL|
                         bindings = <
-   &mt LWIN GRAVE   &kp Q    &kp W      &kp E    &kp R    &kp T       &kp Y    &kp U     &kp I     &kp O    &kp P     &kp BSPC
-   &mt LCTRL TAB    &kp A    &kp S      &kp D    &kp F    &kp G       &kp H    &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
-   &mt LSHFT LPAR   &kp Z    &kp X      &kp C    &kp V    &kp B       &kp N    &kp M     &kp COMMA &kp DOT  &kp FSLH  &mt RSHFT RPAR
-                             &kp C_PP   &kp LALT &kp RET  &mo LWR     &mo RSE  &kp SPACE &kp RCTL  &none
+   &mt LWIN GRAVE   &kp Q    &kp W      &kp E          &kp R    &kp T       &kp Y    &kp U     &kp I     &kp O    &kp P     &kp BSPC
+   &mt LCTRL TAB    &kp A    &kp S      &kp D          &kp F    &kp G       &kp H    &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
+   &mt LSHFT LPAR   &kp Z    &kp X      &kp C          &kp V    &kp B       &kp N    &kp M     &kp COMMA &kp DOT  &kp FSLH  &mt RSHFT RPAR
+                             &kp C_PP   &mt LALT ESC   &kp RET  &mo LWR     &mo RSE  &kp SPACE &kp RCTL  &none
                         >;
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
                         label = "Default";
