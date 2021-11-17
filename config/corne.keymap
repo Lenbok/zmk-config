@@ -14,6 +14,14 @@
 #define ADJ 3
 
 / {
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
+                tri_layer {
+                        if-layers = <LWR RSE>;
+                        then-layer = <ADJ>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -42,7 +50,7 @@
    &mt LWIN ESC &kp N1      &kp N2     &kp N3      &kp N4      &kp N5            &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &trans       &kp F1      &kp F2     &kp F3      &kp F4      &kp F5            &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans       &kp F6      &kp F7     &kp F8      &kp F9      &kp F10           &trans   &trans   &trans &trans    &trans &trans
-                            &kp C_PREV &trans      &mo ADJ     &mo LWR           &mo ADJ  &mo LWR  &trans &none
+                            &kp C_PREV &trans      &trans      &trans            &trans   &trans  &trans &none
                         >;
                         sensor-bindings = <&inc_dec_cp LC(PLUS) LC(MINUS)>;
                         label = "Lower";
@@ -58,7 +66,7 @@
    &kp  ESC     &kp EXCL    &kp AT     &kp HASH    &kp DLLR    &kp PRCNT         &kp CARET   &kp AMPS    &kp ASTRK  &kp LPAR &kp RPAR &kp DEL
    &trans       &none       &none      &none       &none       &none             &kp MINUS   &kp PLUS    &kp LBRC   &kp RBRC &kp PIPE &trans
    &trans       &none       &none      &none       &none       &none             &kp UNDER   &kp EQUAL   &kp LBKT   &kp RBKT &kp BSLH &trans
-                            &kp C_NEXT &trans      &mo RSE     &mo ADJ           &mo RSE     &mo ADJ     &trans     &none
+                            &kp C_NEXT &trans      &trans      &trans            &trans       &trans      &trans     &none
                         >;
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
                         label = "Raise";
