@@ -13,7 +13,66 @@
 #define RSE 2
 #define ADJ 3
 
+
+&caps_word {
+    continue-list = <UNDERSCORE MINUS>;
+};
+
+
 / {
+
+    /* KEY POSITIONS
+
+    (regular)
+    ╭────────────────────────╮ ╭────────────────────────╮
+    │  0   1   2   3   4   5 │ │  6   7   8   9  10  11 │
+    │ 12  13  14  15  16  17 │ │ 18  19  20  21  22  23 │
+    │ 24  25  26  27  28  29 │ │ 30  31  32  33  34  35 │
+    ╰───────────╮ 36  37  38 │ │ 39  40  41 ╭───────────╯
+                ╰────────────╯ ╰────────────╯
+    (encoder)
+    ╭────────────────────────╮ ╭────────────────────────╮
+    │  0   1   2   3   4   5 │ │  6   7   8   9  10  11 │
+    │ 12  13  14  15  16  17 │ │ 18  19  20  21  22  23 │
+    │ 24  25  26  27  28  29 │ │ 30  31  32  33  34  35 │
+    ╰───────╮ 36  37  38  39 │ │ 40  41  42  43 ╭───────╯
+            ╰────────────────╯ ╰────────────────╯
+    */
+
+        combos {
+                compatible = "zmk,combos";
+                combo_grave {
+                        timeout-ms = <50>;
+                        key-positions = <1 2>;
+                        layers = <DEF>;
+                        bindings = <&kp GRAVE>;
+                };
+                combo_esc {
+                        timeout-ms = <50>;
+                        key-positions = <1 2>;
+                        layers = <LWR RSE>;
+                        bindings = <&kp ESC>;
+                };
+                combo_btclr {
+                        timeout-ms = <50>;
+                        key-positions = <5 6>;
+                        layers = <ADJ>;
+                        //bindings = <&bt BT_CLR>;
+                        bindings = <&kp GRAVE>;
+                };
+        };
+
+        behaviors {
+                // Make it so triple tap is required for destructive functions
+                td0: tap_dance_btclr {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_BTCLR";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&none>, <&none>, <&bt BT_CLR>;
+                };
+        };
+
         conditional_layers {
                 compatible = "zmk,conditional-layers";
                 tri_layer {
@@ -24,7 +83,6 @@
 
         keymap {
                 compatible = "zmk,keymap";
-
                 default_layer {
 // -----------------------------------------------------------------------------------------
 // | GUI/~    |   Q  |    W  |  E  |  R  |  T  |     |  Y  |  U   |  I  |  O  |  P  | BKSP   |
@@ -73,14 +131,14 @@
                 };
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
-// | RST  | BLDR |     |     |     |     |        |     |     |     |     | BLDR | RST  |
-// | BTCLR| BT0  | BT1 | BT2 | BT3 | BT4 |        | BT4 | BT3 | BT2 | BT1 | BT0  | BTCLR|
-// |      |      |     |     |     |     |        |     |     |     |     |      |      |
+// |      |      |     |     |     |BTCLR|        |     |     |     |     |      | INS  |
+// | CAPS | BT0  | BT1 | BT2 | BT3 | BT4 |        |     |     |     |     |      |      |
+// |W_CAPS|      |     |     |     |     |        |  <- | -VOL| +VOL| ->  | ||   |      |
 //                     |     |     |     |        |     |     |     |
                         bindings = <
-   &none        &none        &none        &bt BT_CLR   &reset       &bootloader        &bootloader  &reset       &bt BT_CLR   &none        &none         &kp INS
-   &kp CAPS     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &none
-   &none        &none        &none        &none        &none        &none              &kp C_PREV   &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp C_PP      &none
+   &none        &none        &none        &none        &none        &td0               &td0         &none        &none        &none        &none         &kp INS
+   &kp CAPS     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &none        &none        &none        &none        &none         &none
+   &caps_word   &none        &none        &none        &none        &none              &kp C_PREV   &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp C_PP      &none
                              &kp C_MUTE   &trans       &trans       &trans             &trans       &trans       &trans       &none
                         >;
                         label = "Adjust";

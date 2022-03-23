@@ -36,55 +36,66 @@
     ╰───────────╮ 30  31 │ │ 32  33 ╭───────────╯
                 ╰────────╯ ╰────────╯
     */
-    combos {
-        compatible = "zmk,combos";
-        combo_grave {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            layers = <DEF>;
-            bindings = <&kp GRAVE>;
-        };
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            layers = <LWR RSE>;
-            bindings = <&kp ESC>;
-        };
-        combo_ctrl_tab {
-            timeout-ms = <50>;
-            key-positions = <10 11>;
-            bindings = <&mt LCTRL TAB>;
+        combos {
+                compatible = "zmk,combos";
+                combo_grave {
+                        timeout-ms = <50>;
+                        key-positions = <0 1>;
+                        layers = <DEF>;
+                        bindings = <&kp GRAVE>;
+                };
+                combo_esc {
+                        timeout-ms = <50>;
+                        key-positions = <0 1>;
+                        layers = <LWR RSE>;
+                        bindings = <&kp ESC>;
+                };
+                combo_ctrl_tab {
+                        timeout-ms = <50>;
+                        key-positions = <10 11>;
+                        bindings = <&mt LCTRL TAB>;
+                };
+
+                combo_lalt {
+                        timeout-ms = <50>;
+                        key-positions = <11 12>;
+                        bindings = <&kp LALT>;
+                };
+
+                combo_lgui {
+                        timeout-ms = <50>;
+                        key-positions = <12 13>;
+                        bindings = <&kp LGUI>;
+                };
+
+                combo_ralt {
+                        timeout-ms = <50>;
+                        key-positions = <17 16>;
+                        bindings = <&kp RALT>;
+                };
+                combo_rgui {
+                        timeout-ms = <50>;
+                        key-positions = <17 18>;
+                        bindings = <&kp RGUI>;
+                };
+                combo_btclr {
+                        timeout-ms = <50>;
+                        key-positions = <4 5>;
+                        layers = <ADJ>;
+                        bindings = <&bt BT_CLR>;
+                };
         };
 
-        combo_lalt {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&kp LALT>;
+        behaviors {
+                // Make it so triple tap is required for destructive functions
+                td0: tap_dance_btclr {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_BTCLR";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&none>, <&none>, <&bt BT_CLR>;
+                };
         };
-
-        combo_lgui {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp LGUI>;
-        };
-
-        combo_ralt {
-            timeout-ms = <50>;
-            key-positions = <17 16>;
-            bindings = <&kp RALT>;
-        };
-        combo_rgui {
-            timeout-ms = <50>;
-            key-positions = <17 18>;
-            bindings = <&kp RGUI>;
-        };
-        combo_btclr {
-            timeout-ms = <50>;
-            key-positions = <4 5>;
-            layers = <ADJ>;
-            bindings = <&bt BT_CLR>;
-        };
-    };
 
         conditional_layers {
                 compatible = "zmk,conditional-layers";
@@ -121,17 +132,17 @@
                 &kp BANG  &kp ATSN   &kp HASH  &kp DLLR  &kp PRCT        &kp CRRT  &kp AMPS &kp KMLT &kp LPRN &kp RPRN
                 &kp HASH  &kp QMARK  &kp FSLH  &kp COLN  &kp SCLN        &kp MINUS &kp PLUS &kp LBRC &kp RBRC &kp BKSP
                 &kp LSFT  &kp KPLS   &kp LBKT  &kp RBKT  &kp BSLH        &kp UNDER &kp EQUAL&kp LBKT &kp RBKT &kp BSLH
-                                               &trans  &trans            &trans &trans
+                                                 &trans  &trans          &trans &trans
                                 >;
                         label = "Raise";
                 };
 
                 adjust_layer {
                         bindings = <
-                &caps_word  &none  &none     &none     &none         &trans &trans   &trans   &trans  &trans
-                &kp F1 &kp F2     &kp F3     &kp F4    &kp F5        &trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans
-                &none  &bt BT_NXT &bt BT_PRV &kp F6    &kp F7        &trans &kp PG_DN  &kp K_VOL_DN  &trans &trans
-                                         &trans &trans               &trans &trans
+                &none      &none      &none      &none     &td0          &trans &trans     &trans        &trans     &trans
+                &kp F1     &kp F2     &kp F3     &kp F4    &kp F5        &trans &kp PG_UP  &kp K_VOL_UP  &kp K_MUTE &trans
+                &caps_word &bt BT_NXT &bt BT_PRV &kp F6    &kp F7        &trans &kp PG_DN  &kp K_VOL_DN  &trans     &trans
+                                                    &trans &trans        &trans &trans
                 >;
                         label = "Adjust";
                 };
