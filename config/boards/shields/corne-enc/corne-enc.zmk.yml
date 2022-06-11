@@ -1,5 +1,5 @@
 file_format: "1"
-id: corne
+id: corne-enc
 name: Corne
 type: shield
 url: https://github.com/foostan/crkbd/
@@ -11,5 +11,5 @@ features:
   - underglow
   - encoder
 siblings:
-  - corne_left
-  - corne_right
+  - corne-enc_left
+  - corne-enc_right
